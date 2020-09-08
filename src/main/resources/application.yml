@@ -1,0 +1,60 @@
+## Server Properties
+server:
+  port: 8100
+  servlet:
+    context-path: /web-demo
+
+app:
+  security:
+    jwtSecret: JWTSuperSecretKey
+    jwtExpirationInMs: 604800000
+
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+# Oracle settings
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: soibac1001
+    password: Oracle1001
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 5
+    servlet:
+      multipart:
+        max-request-size: 100MB
+        max-file-size: 10MB
+
+## Hibernate Properties
+# create and drop tables and sequences, loads import.sql
+  jpa:
+#    hibernate:
+#      ddl-auto: update # create-drop
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+  ## Jackson Properties
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: UTC
+
+file:
+  upload-dir: /upload
+
+## Hibernate Logging
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: trace
