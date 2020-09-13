@@ -2,9 +2,7 @@ package com.webapp.webdemo.security;
 
 import com.webapp.webdemo.service.impl.CustomUserDetailsServiceImpl;
 import lombok.AllArgsConstructor;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
